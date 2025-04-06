@@ -1,3 +1,371 @@
-Hello world
-asdj
-asdsd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arie Agung - App Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #f1f1f1;
+            --gray: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(110, 69, 226, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 5px;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(110, 69, 226, 0.4);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            opacity: 0;
+            animation: fadeIn 1s ease 0.3s forwards;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.6s forwards;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .social-link span {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .contact-info {
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid rgba(110, 69, 226, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: slideUp 1s ease 0.9s forwards;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: var(--primary);
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .bg-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(110, 69, 226, 0.1), rgba(136, 211, 206, 0.1));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        .bg-blob:nth-child(1) {
+            top: -300px;
+            left: -300px;
+        }
+
+        .bg-blob:nth-child(2) {
+            bottom: -300px;
+            right: -300px;
+            animation-direction: reverse;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 1rem 0;
+            }
+            
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .social-link {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blob"></div>
+    <div class="bg-blob"></div>
+    
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Arie Agung" class="profile-pic">
+            <h1>Arie Agung</h1>
+            <h2>App Developer</h2>
+            
+            <div class="social-links">
+                <a href="mailto:arieagung@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>arieagung@gmail.com</span>
+                </a>
+                <a href="https://wa.me/628991080387" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>0899-1080-387</span>
+                </a>
+                <a href="https://twitter.com/arieagung" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                    <span>@arieagung</span>
+                </a>
+                <a href="https://facebook.com/arieagung" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>facebook.com/arieagung</span>
+                </a>
+                <a href="https://instagram.com/arie_agung" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>arie_agung</span>
+                </a>
+                <a href="https://tiktok.com/@arieagung01" class="social-link">
+                    <i class="fab fa-tiktok"></i>
+                    <span>arieagung01</span>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <a href="mailto:arieagung@gmail.com">arieagung@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <a href="https://wa.me/628991080387">0899-1080-387 (WhatsApp)</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-text">
+                        Connect with me on social media: 
+                        <a href="https://twitter.com/arieagung">Twitter</a>, 
+                        <a href="https://facebook.com/arieagung">Facebook</a>, 
+                        <a href="https://instagram.com/arie_agung">Instagram</a>, 
+                        <a href="https://tiktok.com/@arieagung01">TikTok</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <footer>
+            &copy; 2023 Arie Agung - App Developer. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Tambahkan animasi scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.contact-info, .social-links').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
