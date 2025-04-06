@@ -31,9 +31,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         header {
@@ -87,11 +87,10 @@
 
         .social-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
             margin-bottom: 1.5rem;
             width: 100%;
-            max-width: 600px;
             opacity: 0;
             animation: fadeIn 1s ease 0.6s forwards;
         }
@@ -103,10 +102,11 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            padding: 0.6rem 0.8rem;
+            padding: 0.8rem 1rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             justify-content: center;
+            width: 100%;
         }
 
         .social-link:hover {
@@ -116,13 +116,13 @@
         }
 
         .social-link i {
-            margin-right: 0.5rem;
+            margin-right: 0.8rem;
             font-size: 1.1rem;
             min-width: 20px;
         }
 
         .social-link span {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -134,7 +134,6 @@
             border-radius: 12px;
             padding: 1.2rem;
             margin: 1.5rem 0;
-            max-width: 600px;
             width: 100%;
             border: 1px solid rgba(110, 69, 226, 0.2);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -244,6 +243,11 @@
 
         /* Tablet */
         @media (min-width: 600px) {
+            .container {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+            
             .profile-pic {
                 width: 140px;
                 height: 140px;
@@ -259,6 +263,8 @@
             
             .social-links {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
+                gap: 1rem;
             }
             
             .social-link {
@@ -266,11 +272,16 @@
                 padding: 0.8rem 1rem;
                 justify-content: flex-start;
             }
+            
+            .contact-info {
+                max-width: 600px;
+            }
         }
 
         /* Desktop */
         @media (min-width: 900px) {
             .container {
+                max-width: 1200px;
                 padding: 2rem;
             }
             
@@ -308,25 +319,6 @@
                 font-size: 1rem;
             }
         }
-
-        /* Very small devices */
-        @media (max-width: 400px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .social-links {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-link {
-                justify-content: center;
-            }
-            
-            .contact-text {
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -342,27 +334,27 @@
             <div class="social-links">
                 <a href="mailto:arieagung@gmail.com" class="social-link">
                     <i class="fas fa-envelope"></i>
-                    <span>Email</span>
+                    <span>Email: arieagung@gmail.com</span>
                 </a>
                 <a href="https://wa.me/628991080387" class="social-link">
                     <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
+                    <span>WhatsApp: 0899-1080-387</span>
                 </a>
                 <a href="https://twitter.com/arieagung" class="social-link">
                     <i class="fab fa-twitter"></i>
-                    <span>Twitter</span>
+                    <span>Twitter: @arieagung</span>
                 </a>
                 <a href="https://facebook.com/arieagung" class="social-link">
                     <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
+                    <span>Facebook: arieagung</span>
                 </a>
                 <a href="https://instagram.com/arie_agung" class="social-link">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
+                    <span>Instagram: arie_agung</span>
                 </a>
                 <a href="https://tiktok.com/@arieagung01" class="social-link">
                     <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
+                    <span>TikTok: arieagung01</span>
                 </a>
             </div>
             
