@@ -27,12 +27,13 @@
             color: var(--light);
             min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         header {
@@ -41,94 +42,109 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
             position: relative;
             overflow: hidden;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(110, 69, 226, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 1.5rem;
+            border: 4px solid rgba(110, 69, 226, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.2rem;
             transition: all 0.3s ease;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 5px;
+            padding: 4px;
         }
 
         .profile-pic:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(110, 69, 226, 0.4);
+            box-shadow: 0 12px 35px rgba(110, 69, 226, 0.4);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: fadeIn 1s ease;
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary);
             opacity: 0;
             animation: fadeIn 1s ease 0.3s forwards;
         }
 
         .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 600px;
             opacity: 0;
             animation: fadeIn 1s ease 0.6s forwards;
         }
 
         .social-link {
             color: var(--light);
-            font-size: 1.5rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             text-decoration: none;
+            padding: 0.6rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            justify-content: center;
         }
 
         .social-link:hover {
             color: var(--primary);
             transform: translateY(-3px);
+            background: rgba(110, 69, 226, 0.1);
+        }
+
+        .social-link i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+            min-width: 20px;
         }
 
         .social-link span {
-            font-size: 1rem;
-            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .contact-info {
             background: rgba(26, 26, 46, 0.7);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem 0;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             max-width: 600px;
             width: 100%;
             border: 1px solid rgba(110, 69, 226, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             opacity: 0;
             animation: slideUp 1s ease 0.9s forwards;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -141,21 +157,24 @@
         }
 
         .contact-icon {
-            font-size: 1.2rem;
-            margin-right: 1rem;
+            font-size: 1rem;
+            margin-right: 0.8rem;
             color: var(--primary);
-            width: 30px;
+            width: 25px;
             text-align: center;
+            padding-top: 2px;
         }
 
         .contact-text {
             flex: 1;
+            font-size: 0.95rem;
         }
 
         .contact-text a {
             color: var(--light);
             text-decoration: none;
             transition: all 0.3s ease;
+            word-break: break-all;
         }
 
         .contact-text a:hover {
@@ -165,8 +184,8 @@
 
         .bg-blob {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 400px;
+            height: 400px;
             background: linear-gradient(135deg, rgba(110, 69, 226, 0.1), rgba(136, 211, 206, 0.1));
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             z-index: -1;
@@ -175,22 +194,22 @@
         }
 
         .bg-blob:nth-child(1) {
-            top: -300px;
-            left: -300px;
+            top: -200px;
+            left: -200px;
         }
 
         .bg-blob:nth-child(2) {
-            bottom: -300px;
-            right: -300px;
+            bottom: -200px;
+            right: -200px;
             animation-direction: reverse;
         }
 
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
         }
 
@@ -223,54 +242,89 @@
             }
         }
 
-        @media (max-width: 768px) {
+        /* Tablet */
+        @media (min-width: 600px) {
+            .profile-pic {
+                width: 140px;
+                height: 140px;
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             h2 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .social-links {
-                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .social-link {
-                font-size: 1.2rem;
-            }
-            
-            .contact-info {
-                padding: 1rem;
+                font-size: 1.1rem;
+                padding: 0.8rem 1rem;
+                justify-content: flex-start;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Desktop */
+        @media (min-width: 900px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+            
+            .profile-pic {
+                width: 160px;
+                height: 160px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .social-link {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                padding: 1.5rem;
+            }
+            
+            .contact-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 400px) {
             .container {
                 padding: 1rem;
             }
             
-            header {
-                padding: 1rem 0;
-            }
-            
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
             .social-links {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
             
             .social-link {
-                font-size: 1rem;
+                justify-content: center;
+            }
+            
+            .contact-text {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -288,27 +342,27 @@
             <div class="social-links">
                 <a href="mailto:arieagung@gmail.com" class="social-link">
                     <i class="fas fa-envelope"></i>
-                    <span>arieagung@gmail.com</span>
+                    <span>Email</span>
                 </a>
                 <a href="https://wa.me/628991080387" class="social-link">
                     <i class="fab fa-whatsapp"></i>
-                    <span>0899-1080-387</span>
+                    <span>WhatsApp</span>
                 </a>
                 <a href="https://twitter.com/arieagung" class="social-link">
                     <i class="fab fa-twitter"></i>
-                    <span>@arieagung</span>
+                    <span>Twitter</span>
                 </a>
                 <a href="https://facebook.com/arieagung" class="social-link">
-                    <i class="fab fa-facebook"></i>
-                    <span>facebook.com/arieagung</span>
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
                 </a>
                 <a href="https://instagram.com/arie_agung" class="social-link">
                     <i class="fab fa-instagram"></i>
-                    <span>arie_agung</span>
+                    <span>Instagram</span>
                 </a>
                 <a href="https://tiktok.com/@arieagung01" class="social-link">
                     <i class="fab fa-tiktok"></i>
-                    <span>arieagung01</span>
+                    <span>TikTok</span>
                 </a>
             </div>
             
@@ -334,7 +388,7 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="contact-text">
-                        Connect with me on social media: 
+                        Connect with me: 
                         <a href="https://twitter.com/arieagung">Twitter</a>, 
                         <a href="https://facebook.com/arieagung">Facebook</a>, 
                         <a href="https://instagram.com/arie_agung">Instagram</a>, 
@@ -345,12 +399,15 @@
         </header>
         
         <footer>
-            &copy; 2023 Arie Agung - App Developer. All rights reserved.
+            &copy; <span id="year"></span> Arie Agung - App Developer. All rights reserved.
         </footer>
     </div>
 
     <script>
-        // Tambahkan animasi scroll
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth animations
         document.addEventListener('DOMContentLoaded', function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
